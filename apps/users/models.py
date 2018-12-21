@@ -27,6 +27,11 @@ class UserProfile(AbstractUser):
     def __str__(self):
         return self.username
 
+    def unread_nums(self):
+        # 获取用户未读消息的数量
+        from operation.models import UserMessage
+        return UserMessage.objects.filter(user=self.id, has_read=False).count()
+
 
 # 邮箱验证
 class EmailVerifyRecord(models.Model):
@@ -34,8 +39,7 @@ class EmailVerifyRecord(models.Model):
     email = models.EmailField(max_length=50, verbose_name='邮箱')
     send_type = models.CharField(
         verbose_name='验证码类型',
-        choices=(('register', '注册'), ('forget', '找回密码')),
-        max_length=10)  # 加入choices只能选择，不能更改
+        choices=(('register', '注册'), ('forget', '找回密码'), ('update_email', '修改邮箱')), max_length=30)
     send_time = models.DateTimeField(verbose_name='发送时间', default=datetime.now)
 
     class Meta:

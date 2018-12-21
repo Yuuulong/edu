@@ -15,7 +15,8 @@ class CourseResourceInline(object):
 
 class CourseAdmin(object):
     list_display = [
-        'name', 'desc', 'detail', 'degree', 'learn_times', 'students'
+        'name', 'desc', 'detail', 'degree', 'learn_times', 'students',
+        'get_zj_nums', 'go_to'
     ]
     search_fields = ['name', 'desc', 'detail', 'degree', 'students']  # 后台搜索
     list_filter = [

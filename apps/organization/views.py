@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
-
+import json
 from .models import CourseOrg, CityDict, Teacher
 from django.shortcuts import render_to_response
 from .forms import UserAskForm
@@ -44,7 +44,7 @@ class OrgView(View):
             elif sort == 'courses':
                 all_orgs = all_orgs.order_by('-course_nums')
 
-        org_nums = all_orgs.count()
+        org_nums = all_orgs.count()  # 对分校总数进行统计
         # 对连锁分校进行分页
         try:
             page = request.GET.get('page', 1)
@@ -71,9 +71,9 @@ class AddUserAskView(View):
         userask_form = UserAskForm(request.POST)
         if userask_form.is_valid():
             user_ask = userask_form.save(commit=True)
-            return HttpResponse("{'status':'success}", content_type='application/json')
+            return HttpResponse(json.dumps({'status': 'success'}), content_type='application/json')
         else:
-            return HttpResponse("{'status':'fail', 'msg':'添加出错'}", content_type='application/json')
+            return HttpResponse(json.dumps({'status': 'fail', 'msg': '添加出错'}), content_type='application/json')
 
 
 class OrgHomeView(View):
@@ -124,7 +124,7 @@ class OrgDescView(View):
         current_page = 'desc'
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         # all_courses = course_org.course_set.all()
@@ -141,12 +141,12 @@ class OrgTeacherView(View):
         current_page = 'teacher'
         course_org = CourseOrg.objects.get(id=int(org_id))
         has_fav = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
                 has_fav = True
         all_teachers = course_org.teacher_set.all()
 
-        return render(request, 'org-detail-teacher.html', {
+        return render(request, 'org-detail-teachers.html', {
             'all_teachers': all_teachers,
             'course_org': course_org,
             'current_page': current_page,
@@ -161,7 +161,7 @@ class AddFavView(View):
         fav_id = request.POST.get('fav_id', 0)
         fav_type = request.POST.get('fav_type', 0)
 
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             # 判断用户登录状态
             return HttpResponse('{"status":"fail", "msg":"用户未登录"}', content_type='application/json')
 
@@ -238,12 +238,14 @@ class TeacherListView(View):
             page = 1
 
         p = Paginator(all_teachers, 3, request=request)
+        teacher_nums = all_teachers.count()  # 对教师总数进行统计
 
         teachers = p.page(page)
         return render(request, 'teachers-list.html', {
             'all_teachers': teachers,
             'sorted_teacher': sorted_teacher,
-            'sort':sort,
+            'sort': sort,
+            'teacher_nums': teacher_nums,
         })
 
 
@@ -255,21 +257,21 @@ class TeacherDetailView(View):
         all_courses = Course.objects.filter(teacher=teacher)
 
         has_teacher_faved = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id=teacher.id):
                 has_teacher_faved = True
 
         has_org_faved = False
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id=teacher.org.id):
                 has_org_faved = True
 
-        # 讲师排行
+        # 讲师风云
         sorted_teacher = Teacher.objects.all().order_by("-click_nums")[:3]
         return render(request, "teacher-detail.html", {
-            "teacher":teacher,
-            "all_courses":all_courses,
-            "sorted_teacher":sorted_teacher,
+            "teacher": teacher,
+            "all_courses": all_courses,
+            "sorted_teacher": sorted_teacher,
             "has_teacher_faved": has_teacher_faved,
-            "has_org_faved":has_org_faved
+            "has_org_faved": has_org_faved
         })

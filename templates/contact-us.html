@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}联系我们 - 菁航教育网{% endblock %}
+{% load staticfiles %}
+{% block custom_bread %}
+<section>
+    <div class="wp">
+        <ul class="crumbs">
+            <li><a href="/">首页</a>></li>
+            <li>联系我们</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block content %}
+
+<center><img src="{% static 'images/contact_us.jpg' %}"/></center>
+
+{% endblock %}

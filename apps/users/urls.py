@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 
-from .views import UserinfoView, UploadImageView
+from .views import UserinfoView, UploadImageView, AboutUs, ContactUs
 
 from .views import UpdateEmailView, MyCourseView, MyFavOrgView, MyFavTeacherView, MyFavCourseView, MymessageView, \
     UpdatePwdView, SendEmailCodeView
@@ -35,4 +35,12 @@ urlpatterns = [
 
     # 我的消息
     url(r'^mymessage/$', MymessageView.as_view(), name="mymessage"),
+
+    # 菁航简介
+    url(r'^about_us/$', AboutUs.as_view(), name="about_us"),
+
+    # 联系我们
+    url(r'^contact_us/$', ContactUs.as_view(), name="contact_us"),
+    
+
 ]

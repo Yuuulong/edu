@@ -7,7 +7,7 @@ from courses.models import Course
 # Create your models here.
 
 
-class UserAsk(models.Model):
+class UserAsk(models.Model):  # 咨询我要学习
     name = models.CharField(max_length=20, verbose_name='姓名')
     mobile = models.CharField(max_length=11, verbose_name='手机')
     course_name = models.CharField(max_length=50, verbose_name='课程名')

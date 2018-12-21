@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>{% block title %}分校首页 - XX教育网{% endblock %}</title>
+    <title>{% block title %}分校首页 - 菁航教育网{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -28,8 +28,7 @@
                     {% if request.user.is_authenticated %}
                     <div class="personal">
                         <dl class="user fr">
-                            <dd>{{ user.username }}<img class="down fr" src="{% static '/static/images/top_down.png'
-                                %}"/>
+                            <dd>{{ user.username }}
                             </dd>
                             <dt><img width="20" height="20" src="{{ MEDIA_URL }}{{ request.user.image }}"/></dt>
                         </dl>
@@ -74,7 +73,7 @@
                     <img class="fl" style="width: 112px;height: 103px" src="{{ MEDIA_URL }}{{ course_org.image }}"/>
                     <div class="head fl">
                         <h1>
-                            XX教育网
+                            {{ course_org.name }}
                             <img src="{% static 'images/authentication.png' %}"/>
                             <img src="{% static 'images/gold.png' %}"/>
                         </h1>

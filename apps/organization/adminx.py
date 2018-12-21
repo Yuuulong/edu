@@ -6,6 +6,7 @@ class CityDictAdmin(object):
     list_display = ['name', 'desc', 'add_time']
     search_fields = ['name', 'desc']  # 后台搜索
     list_filter = ['name', 'desc', 'add_time']
+    model_icon = 'fa fa-university'
 
 
 class CourseOrgAdmin(object):
@@ -20,6 +21,8 @@ class CourseOrgAdmin(object):
         'name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city',
         'add_time'
     ]
+    model_icon = 'fa fa-university'
+
 
 
 class TeacherAdmin(object):
@@ -35,6 +38,7 @@ class TeacherAdmin(object):
         'org', 'name', 'work_years', 'work_company', 'work_position', 'points',
         'click_nums', 'fav_nums', 'add_time'
     ]
+    model_icon = 'fa fa-user-md'
 
 
 xadmin.site.register(CityDict, CityDictAdmin)

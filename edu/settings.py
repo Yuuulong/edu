@@ -161,3 +161,5 @@ EMAIL_USE_TLS = False  # 与SMTP服务器通信时，是否启动TLS链接(安�
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 上传资源文件配置
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 上传资源文件配置

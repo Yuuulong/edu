@@ -1,7 +1,7 @@
 body{
     width:100%;
     height:100%;
-    background:#77c562;
+    background:#ccc;
 }
 a:hover{
     text-decoration:underline;
@@ -42,7 +42,7 @@ a:hover{
 }
 .hd-bar > li.active > a,
 .hd-bar > li > a:hover {
-    color:#67ac53;
+    color:#4184b9;
 }
 
 
@@ -312,7 +312,7 @@ a:hover{
     color:#717171;
 }
 .form-box a{
-    color:#666;
+    color:#4184b9;
 }
 .form-box a:hover{
     color:#717171;
@@ -327,7 +327,7 @@ a:hover{
     cursor:pointer;
 }
 .btn-green{
-    background:#6ec55a;
+    background:#4184b9;
 }
 .btn-green:hover{
     background:#5dbf45;

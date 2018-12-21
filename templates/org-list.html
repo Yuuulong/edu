@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}连锁分校 - 菁航教育在线网{% endblock %}
+{% block title %}连锁分校 - 菁航教育网{% endblock %}
 {% load staticfiles %}
 {% block custom_bread %}
     <section>
@@ -75,18 +75,18 @@
                              </a>
                         </div>
                         <ul class="cont">
-                            <li class="first"><p class="pic9">课程数：<span>1</span></p><p class="c7">学习人数：<span>1000</span></p></li>
-                            <li class="c8" style="padding-left:18px;">沈阳市皇姑区北陵大街</li>
+                            <li class="first"><p class="pic9">课程数：<span>1</span></p><p class="c7">学习人数：<span>645</span></p></li>
+                            <li class="c8" style="padding-left:18px;">沈阳市和平区中山路65号18楼-菁航教育基地</li>
                             <li class="pic10" style="padding-left:18px;">权威课程：
 
-                                    <a href="/diary/19/">申论备考</a>
+                                    <a href="/diary/19/">笔试备考</a>
 
                                     <a href="/diary/16/">面试备考</a>
 
                             </li>
                         </ul>
                     </dd>
-                    <div class="buy start_groupbuy jsShowPerfect2" data-id="22"><br/>联系<br/>服务</div>
+                    <div class="buy start_groupbuy jsShowPerfect2" data-id="22"><a style='color:#4184b9', href="{% url 'org:org_home' course_org.id %}"><br/>联系<br/>服务</a></div>
                 </dl>
             {% endfor %}
 		</div>
@@ -143,7 +143,7 @@
                 <dl class="des">
                     <dt class="num fl">{{ forloop.counter }}</dt>
                     <dd>
-                        <a href="/company/2/"><h1>{{ curent_org.name }}</h1></a>
+                        <a><h1>{{ curent_org.name }}</h1></a>
                         <p>{{ curent_org.address }}</p>
                     </dd>
                 </dl>
@@ -169,7 +169,7 @@
                 success: function(data) {
                     if(data.status == 'success'){
                         $('#jsStayForm')[0].reset();
-                        alert("提交成功")
+                        alert("咨询成功")
                     }else if(data.status == 'fail'){
                         $('#jsCompanyTips').html(data.msg)
                     }

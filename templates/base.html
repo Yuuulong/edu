@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>{% block title %}菁航教育在线首页{% endblock %}</title>
+    <title>{% block title %}菁航教育网首页{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -20,14 +20,13 @@
         <div class=" header">
             <div class="top">
                 <div class="wp">
-                    <div class="fl"><p>服务电话：<b>33333333</b></p></div>
+                    <div class="fl"><p>服务电话：<b>40033333&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报名地址：沈阳市和平区中山路65号</b></p></div>
                     <!--登录后跳转-->
 
                     {% if request.user.is_authenticated %}
                     <div class="personal">
                         <dl class="user fr">
-                            <dd>{{ user.username }}<img class="down fr" src="{% static 'images/top_down.png' %}"
-                            >
+                            <dd>{{ user.username }}
                             </dd>
                             <dt><img width="20" height="20" src="{{ MEDIA_URL }}{{ request.user.image }}"/></dt>
                         </dl>
@@ -59,14 +58,14 @@
 
             <div class="middle">
                 <div class="wp">
-                    <a href="/"><img class="fl" src="{% static 'images/logo.jpg' %}"/></a>
+                    <a href="/"><img class="fl" src="{% static 'images/logo.png' %}"/></a>
                     <div class="searchbox fr">
                         <div class="selectContainer fl">
                             <span class="selectOption" id="jsSelectOption" data-value="course">
-                                公开课
+                                面授课程 
                             </span>
                             <ul class="selectMenu" id="jsSelectMenu">
-                                <li data-value="course">公开课</li>
+                                <li data-value="course">面授课程</li>
                                 <li data-value="org">连锁分校</li>
                                 <li data-value="teacher">授课老师</li>
                             </ul>
@@ -84,13 +83,16 @@
 							<li><a href="{% url 'index' %}">首页</a></li>
 							<li>
 								<a href="{% url 'course:course_list' %}">
-									公开课<img class="hot" src="{% static 'images/nav_hot.png' %}">
+									面授课程
 								</a>
 							</li>
 							<li>
 								<a href="{% url 'org:teacher_list' %}">授课教师</a>
 							</li>
-							<li><a href="{% url 'org:org_list' %}">连锁分校</a></li>
+                            <li><a href="{% url 'org:org_list' %}">连锁分校</a></li>
+                            <li><a href="{% url 'users:about_us' %}">菁航简介</a></li>
+                            <li><a href="{% url 'users:contact_us' %}">联系我们</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -116,7 +118,7 @@
     <div class="footer">
         <div class="wp">
             <ul class="cont">
-                <li class="logo"><a href=""><img src="{% static 'images/footlogo.png' %}"/></a></li>
+                <li class="logo"><a href=""><img src="{% static 'images/logo.png' %}"/></a></li>
                 <li class="code"><img src="{% static 'images/code.jpg' %}"/>
                     <p class="center">扫描关注微信</p></li>
                 <li class="third"><img class="fl" src="{% static 'images/tell.png' %}"/>
@@ -127,8 +129,8 @@
         </div>
         <p class="line"></p>
         <div class="wp clear">
-            <span class="fl"> 2018 www.ingang.cn 菁航教育在线-在线学习交流平台 保留所有权利</span>
-            <span class="fr">copyright ? 2018 ICP备案证书号：辽ICP备xxxxx号-1</span>
+            <span class="fl"> 2019 www.ingang.cn 菁航教育网-公务员考试平台 保留所有权利</span>
+            <span class="fr">copyright@ 2019 ICP备案证书号：辽ICP备xxxxx号-1</span>
         </div>
     </div>
 </footer>

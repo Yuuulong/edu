@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from .views import CourseListView, CourseDetailView, CourseInfoView, CommentsView, AddComentsView
+from .views import CourseListView, CourseDetailView, CourseInfoView, CommentsView, AddComentsView, VideoPlayView
 
 urlpatterns = [
     # 课程列表页
@@ -12,11 +12,11 @@ urlpatterns = [
     url(r'^info/(?P<course_id>\d+)/$', CourseInfoView.as_view(), name='course_info'),
 
     # 课程评论
-    url(r'^comment/(?P<course_id>\d+)/$', CommentsView.as_view(), name='course_comment'),
+    url(r'^comment/(?P<course_id>\d+)/$', CommentsView.as_view(), name='course_comments'),
 
     # 添加课程评论
     url(r'^add_comment/$', AddComentsView.as_view(), name='add_comment'),
 
-    # url(r'^video/(?P<video_id>\d+)/$', VideoPlayView.as_view(), name='video_play'),
+    url(r'^video/(?P<video_id>\d+)/$', VideoPlayView.as_view(), name='video_play'),
 
 ]

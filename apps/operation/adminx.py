@@ -9,14 +9,11 @@ class UserAskAdmin(object):
     model_icon = 'fa fa-question-circle'
 
 
-
 class CourseCommentsAdmin(object):
     list_display = ['user', 'course', 'comments', 'add_time']
     search_fields = ['user', 'course', 'comments']
     list_filter = ['user', 'course', 'comments', 'add_time']
     model_icon = 'fa fa-comment'
-
-
 
 
 class UserFavoriteAdmin(object):
@@ -26,7 +23,6 @@ class UserFavoriteAdmin(object):
     model_icon = 'fa fa-heart'
 
 
-
 class UserMessageAdmin(object):
     list_display = ['user', 'message', 'has_read', 'add_time']
     search_fields = ['user', 'message', 'has_read']
@@ -34,13 +30,11 @@ class UserMessageAdmin(object):
     model_icon = 'fa fa-envelope-o'
 
 
-
 class UserCourseAdmin(object):
     list_display = ['user', 'course', 'add_time']
     search_fields = ['user', 'course', 'course_name']
     list_filter = ['user', 'course', 'add_time']
     model_icon = 'fa fa-address-book'
-
 
 
 xadmin.site.register(UserAsk, UserAskAdmin)

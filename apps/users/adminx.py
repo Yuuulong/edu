@@ -18,6 +18,7 @@ class EmailVerifyRecordAdmin(object):
     list_display = ['code', 'email', 'send_type', 'send_time']
     search_fields = ['code', 'email', 'send_type']  # 后台搜索
     list_filter = ['code', 'email', 'send_type', 'send_time']  # 筛选
+    model_icon = 'fa fa-address-book-o'
 
 
 class BannerAdmin(object):

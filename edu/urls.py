@@ -22,11 +22,11 @@ from users.views import (ActiveUserView, ForgetPwdView, LoginView, LogoutView,
                          ModifyPwdView, RegisterView, ResetView)
 from organization.views import OrgView
 from edu.settings import MEDIA_ROOT
-# from users.views import IndexView
+from users.views import IndexView
 
 urlpatterns = [
     url(r'xadmin/', xadmin.site.urls),
-    url('^$', TemplateView.as_view(template_name='index.html'), name='index'),
+    url('^$', IndexView.as_view(), name='index'),
     url('^login/$', LoginView.as_view(), name='login'),
     url('^logout/$', LogoutView.as_view(), name="logout"),
 
@@ -44,6 +44,7 @@ urlpatterns = [
 
     # 配置上传文件的访问处理函数
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+    # url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
 
     # 课程相关url配置
 

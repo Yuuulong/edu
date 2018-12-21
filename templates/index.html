@@ -64,7 +64,7 @@
 				<h1>公开课程</h1>
 				<div class="module1 eachmod">
 					<div class="module1_1 left">
-						<img width="228" height="614" src="/static/images/module1_1.jpg"/>
+						<img width="228" height="614" src="/static/images/module3_1.jpg"/>
 						<p class="fisrt_word">名师授课<br/>专业权威</p>
 						<a class="more" href="{% url 'course:course_list' %}">查看更多课程 ></a>
 					</div>
@@ -120,10 +120,10 @@
 					<div class="right">
 						<ul>
                             {% for org in course_orgs %}
-                                <li class="{% if forloop.counter|divisibleby:5 %}five{% endif %}">
+                                <li class="{% if forloop.counter|divisibleby:4 %}four{% endif %}">
                                     <a href="{% url 'org:org_home' org.id %}">
                                         <div class="company">
-                                            <img width="184" height="100" src="{{ MEDIA_URL }}{{ org.image }}"/>
+                                            <img width="225" height="222" src="{{ MEDIA_URL }}{{ org.image }}"/>
                                             <div class="score">
                                                 <div class="circle">
                                                     <h2>{{ org.tag }}</h2>

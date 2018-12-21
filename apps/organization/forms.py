@@ -13,6 +13,7 @@ class UserAskForm(forms.ModelForm):  # 根据ModelForm创建表单
 
     def clean_mobile(self):
         # 给手机定义正则表达式,验证手机号码是否合法
+
         mobile = self.cleaned_data['mobile']
         REGEX_MOBILE = '^1[358]\d{9}$|^147\d{8}$|^176\d{8}$'  # 手机号码正则表达式
         p =re.compile(REGEX_MOBILE)
