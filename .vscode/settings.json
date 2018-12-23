@@ -1,0 +1,26 @@
+{   
+    // 控制是否应在遇到提交字符时接受建议。例如，在 JavaScript 中，半角分号 (`;`) 可以为提交字符，能够在接受建议的同时键入该字符
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    // 控制除了 `Tab` 键以外， `Enter` 键是否同样可以接受建议。这能减少“插入新行”和“接受建议”命令之间的歧义。
+    //  - on
+    //  - smart: 仅当建议包含文本改动时才可使用 `Enter` 键进行接受。
+    //  - off
+    "editor.acceptSuggestionOnEnter": "on",
+    // 控制是否在键入时自动显示建议。
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    // 控制在键入触发字符后是否自动显示建议。
+    "editor.suggestOnTriggerCharacters": false,
+    // 启用 Tab 补全。
+    //  - on: 在按下 Tab 键时进行 Tab 补全，将插入最佳匹配建议。
+    //  - off: 禁用 Tab 补全。
+    //  - onlySnippets: 在前缀匹配时进行 Tab 补全。在 "quickSuggestions" 未启用时体验最好。
+    "editor.tabCompletion": "on",
+"editor.suggestSelection": "recentlyUsedByPrefix",
+// 在输入时显示含有参数文档和类型信息的小面板。
+"editor.parameterHints.enabled": false,
+"editor.suggest.localityBonus": true,
+}
