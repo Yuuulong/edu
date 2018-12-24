@@ -1,5 +1,11 @@
 import xadmin
 from .models import EmailVerifyRecord, Banner
+from xadmin import views
+
+
+class BaseSetting(object):
+    enable_themes = True  # 开启主题
+    use_booswatch = True
 
 
 class EmailVerifyRecordAdmin(object):
@@ -16,3 +22,4 @@ class BannerAdmin(object):
 
 xadmin.site.register(EmailVerifyRecord, EmailVerifyRecordAdmin)
 xadmin.site.register(Banner, BannerAdmin)
+xadmin.site.register(views.BaseAdminView, BaseSetting)
