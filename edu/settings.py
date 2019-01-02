@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,6 +45,9 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',
     'crispy_forms',
+    'captcha',
+    'pure_pagination',
+    # 'DjangoUeditor',
 ]
 AUTH_USER_MODEL = "users.UserProfile"  # 重载
 MIDDLEWARE = [
@@ -67,6 +73,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.core.context_processors.media',
+                'django.template.context_processors.media'
+
             ],
         },
     },
@@ -135,3 +144,20 @@ USE_TZ = False  # 改为本地时间，防止数据库时间统计出错
 
 STATIC_URL = '/static/'  # 配置静态文件路径
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# 发送邮件设置
+# https://docs.djangoproject.com/en/2.0/ref/settings/#email
+# https://docs.djangoproject.com/en/2.0/topics/email/
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '329227939@qq.com'
+EMAIL_HOST_PASSWORD = 'kbiltdobznyccbci'
+EMAIL_FROM = '329227939@qq.com'
+# EMAIL_HOST_PASSWORD = os.environ[
+#     'EMAIL_HOST_PASSWORD']  # 'kbiltdobznyccbci'  # 授权码
+# EMAIL_SUBJECT_PREFIX = '[黄宇龙的博客] '
+EMAIL_USE_TLS = False  # 与SMTP服务器通信时，是否启动TLS链接(安全链接)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 上传资源文件配置

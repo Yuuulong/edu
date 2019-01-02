@@ -30,18 +30,18 @@ class Migration(migrations.Migration):
             name='CourseOrg',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, verbose_name='机构名称')),
-                ('desc', models.TextField(verbose_name='机构描述')),
+                ('name', models.CharField(max_length=50, verbose_name='分校名称')),
+                ('desc', models.TextField(verbose_name='分校描述')),
                 ('click_nums', models.IntegerField(default=0, verbose_name='点击数')),
                 ('fac_nums', models.IntegerField(default=0, verbose_name='收藏数')),
                 ('image', models.ImageField(upload_to='org/%Y/%m', verbose_name='封面图')),
-                ('address', models.CharField(max_length=150, verbose_name='机构地址')),
+                ('address', models.CharField(max_length=150, verbose_name='分校地址')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now)),
                 ('city', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='organization.CityDict', verbose_name='所在城市')),
             ],
             options={
-                'verbose_name': '课程机构',
-                'verbose_name_plural': '课程机构',
+                'verbose_name': '连锁分校',
+                'verbose_name_plural': '连锁分校',
             },
         ),
         migrations.CreateModel(
@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('click_nums', models.IntegerField(default=0, verbose_name='点击数')),
                 ('fac_nums', models.IntegerField(default=0, verbose_name='收藏数')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now)),
-                ('org', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='organization.CourseOrg', verbose_name='所属机构')),
+                ('org', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='organization.CourseOrg', verbose_name='所属分校')),
             ],
             options={
                 'verbose_name': '教师',
