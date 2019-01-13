@@ -55,7 +55,7 @@ class Teacher(models.Model):
         CourseOrg, verbose_name='所属分校', on_delete=models.CASCADE)
     name = models.CharField(max_length=50, verbose_name='教师名')
     work_years = models.IntegerField(default=0, verbose_name='工作年限')
-    work_company = models.CharField(max_length=50, verbose_name='就职公司')
+    work_company = models.CharField(max_length=50, verbose_name='学位')
     work_position = models.CharField(max_length=50, verbose_name='公司职位')
     points = models.CharField(max_length=120, verbose_name='教学特点')
     click_nums = models.IntegerField(default=0, verbose_name='点击数')
