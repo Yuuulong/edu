@@ -105,7 +105,7 @@ class LoginView(View):
                     login(request, user)
                     return HttpResponseRedirect(reverse("index"))
                 else:
-                    return render(request, 'login.html', {'msg': '用户未激活'})
+                    return render(request, 'login.html', {'msg': '用户未激活，请查看注册邮箱进行激活'})
 
             else:
                 return render(request, 'login.html', {'msg': '用户名或密码不正确'})
