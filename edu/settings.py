@@ -150,7 +150,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/2.0/topics/email/
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 25
+EMAIL_PORT = 465
 EMAIL_HOST_USER = '329227939@qq.com'
 EMAIL_HOST_PASSWORD = 'kbiltdobznyccbci'
 EMAIL_FROM = '329227939@qq.com'
