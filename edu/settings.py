@@ -150,7 +150,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/2.0/topics/email/
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 465
+EMAIL_PORT = 465  # 阿里云不给开25端口
 EMAIL_HOST_USER = '329227939@qq.com'
 EMAIL_HOST_PASSWORD = 'kbiltdobznyccbci'
 EMAIL_FROM = '329227939@qq.com'
@@ -162,4 +162,4 @@ EMAIL_USE_SSL = True  # 与SMTP服务器通信时，是否启动SSL链接(安全
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 上传资源文件配置
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 上传资源文件配置
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 上传资源文件配置,收集静态文件配置
