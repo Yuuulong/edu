@@ -1,3 +1,4 @@
 static_collected/
 __pycache__/
 local.py
+manage.py
