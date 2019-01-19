@@ -21,7 +21,7 @@ from django.views.static import serve
 from users.views import (ActiveUserView, ForgetPwdView, LoginView, LogoutView,
                          ModifyPwdView, RegisterView, ResetView)
 from organization.views import OrgView
-from edu.settings import MEDIA_ROOT
+from edu.settings.base import MEDIA_ROOT
 from users.views import IndexView
 
 urlpatterns = [

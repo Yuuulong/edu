@@ -604,7 +604,7 @@ i {
     right: 0;
     top: 0;
     line-height: 48px;
-    color: #39b94e;
+    color: #4184b9;
 }
 .downlist li a:hover {
     text-decoration: underline;
@@ -972,7 +972,7 @@ i {
 .verify-box .verify-help .verify-refresh {
     display: block;
     margin-top: 4px;
-    color: #00b33b;
+    color: #4184b9;
 }
 .unquestion,
 .empty-holder {

@@ -66,10 +66,10 @@
                              <a href="{% url 'org:org_home' course_org.id %}">
                                  <h1>{{ course_org.name }}</h1>
                                  <div class="pic fl">
-
+<!-- 
                                          <img src="{% static 'images/authentication.png' %}"/>
 
-                                         <img src="{% static 'images/gold.png' %}"/>
+                                         <img src="{% static 'images/gold.png' %}"/> -->
 
                                  </div>
                              </a>
@@ -79,14 +79,14 @@
                             <li class="c8" style="padding-left:18px;">沈阳市和平区中山路65号18楼-菁航教育基地</li>
                             <li class="pic10" style="padding-left:18px;">权威课程：
 
-                                    <a href="/diary/19/">笔试备考</a>
+                                    <a>笔试备考</a>
 
-                                    <a href="/diary/16/">面试备考</a>
+                                    <a>面试备考</a>
 
                             </li>
                         </ul>
                     </dd>
-                    <div class="buy start_groupbuy jsShowPerfect2" data-id="22"><a style='color:#066abc', href="{% url 'org:org_home' course_org.id %}"><br/>联系<br/>服务</a></div>
+                    <div class="buy start_groupbuy jsShowPerfect2" data-id="22"><a style='color:#717171', href="{% url 'org:org_home' course_org.id %}"><br/>联系<br/>服务</a></div>
                 </dl>
             {% endfor %}
 		</div>
@@ -141,7 +141,7 @@
 
             {% for curent_org in hot_orgs %}
                 <dl class="des">
-                    <dt class="num fl">{{ forloop.counter }}</dt>
+                    
                     <dd>
                         <a><h1>{{ curent_org.name }}</h1></a>
                         <p>{{ curent_org.address }}</p>
