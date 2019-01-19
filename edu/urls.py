@@ -14,14 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import xadmin
-from django.contrib import admin
 from django.conf.urls import include, url
 from django.views.generic import TemplateView  # 通用视图，处理静态文件
 from django.views.static import serve
 from users.views import (ActiveUserView, ForgetPwdView, LoginView, LogoutView,
                          ModifyPwdView, RegisterView, ResetView)
 from organization.views import OrgView
-from edu.settings.base import MEDIA_ROOT
+from edu.settings.base import MEDIA_ROOT, STATIC_ROOT
 from users.views import IndexView
 
 urlpatterns = [
@@ -29,7 +28,6 @@ urlpatterns = [
     url('^$', IndexView.as_view(), name='index'),
     url('^login/$', LoginView.as_view(), name='login'),
     url('^logout/$', LogoutView.as_view(), name="logout"),
-
     url('^register/$', RegisterView.as_view(), name='register'),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^active/(?P<active_code>.*)/$',
@@ -40,14 +38,14 @@ urlpatterns = [
     url(r'^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
 
     # 连锁分校url配置
-    url(r'^org/', include(('organization.urls', 'organization'), namespace='org')),
+    url(r'^org/',
+        include(('organization.urls', 'organization'), namespace='org')),
 
     # 配置上传文件的访问处理函数
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
-    # url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
 
     # 课程相关url配置
-
     url(r'^course/', include(('courses.urls', 'courses'), namespace='course')),
 
     # 讲师相关url配置
@@ -55,7 +53,6 @@ urlpatterns = [
 
     # 富文本相关url
     # url(r'^ueditor/', include(('DjangoUeditor.urls', 'ueditor'), namespace="ueditor")),
-
 ]
 
 # 全局404页面配置
